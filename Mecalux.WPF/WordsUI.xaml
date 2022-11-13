@@ -1,0 +1,39 @@
+﻿<Window x:Class="Mecalux.WPF.WordsUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mecalux.WPF"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="Mecalux Words" Height="450" Width="800">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="120  "/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="2" x:Name="image" Source="/mecalux.jpg" Stretch="None"/>
+
+        <TextBox Grid.Column="0" Grid.Row="1"  Grid.RowSpan="2" x:Name="txtInput" Margin="5,5,5,5" TextWrapping="Wrap" AcceptsReturn="True" Text="Write here a text"  />
+
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="5,5,5,5" Name="StackPanel2" >
+            <ComboBox x:Name="cbOptions" Margin="1,1,1,0" Height="22" />
+
+            <Button x:Name="btnSort" Margin="1,5,1,0" VerticalAlignment="Top" Height="30" Click="btnSort_Click" Content="Sorted words" />
+            <Button x:Name="btnStatistics" Margin="1,5,1,0" VerticalAlignment="Top" Height="30" Click="btnStatistics_Click" Content="Statistics" />
+
+
+        </StackPanel>
+
+        <ListBox Grid.Column="1" Grid.Row="2" x:Name="lstResult" d:ItemsSource="{d:SampleData ItemCount=50}" Margin="5,5,5,5"  />
+
+
+    </Grid>
+</Window>
